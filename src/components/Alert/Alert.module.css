@@ -1,0 +1,25 @@
+.alertContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border: 0;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: rgb(112, 207, 228);
+  font-size: 1.6rem;
+  color: #fff;
+}
+
+.btnClose {
+  border: 0;
+  cursor: pointer;
+  padding: 0 0.5rem;
+  border-radius: 0.3rem;
+  transition: all 0.3s ease;
+}
+
+.btnClose:hover {
+  opacity: 0.8;
+  background: rgb(115, 178, 241);
+}

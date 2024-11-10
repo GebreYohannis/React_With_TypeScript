@@ -1,0 +1,39 @@
+.title {
+  font-size: 2rem;
+  color: #444;
+}
+
+.listGroup {
+  list-style: none;
+  border-radius: 10px;
+  color: #444;
+  border: 1px solid #444;
+  max-width: 200px;
+  margin: 1rem;
+}
+
+.listGroupItem {
+  font-size: 1.6rem;
+  border-bottom: 1px solid #444;
+  padding: 2rem auto;
+  /* border-radius: 10px; */
+  text-align: center;
+}
+
+.listGroupItem:first-child {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.listGroupItem:last-child {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border: 0;
+}
+
+.listGroupItem:hover {
+  cursor: pointer;
+}
+.active {
+  background: dodgerblue;
+  color: #fff;
+}

@@ -1,0 +1,40 @@
+.container {
+  margin: 0;
+  padding: 1rem;
+}
+
+.counter__container {
+  border-radius: 10px;
+  background: #0c1a36;
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-around;
+  max-width: 20rem;
+}
+
+.btn {
+  outline: none;
+  border: 0;
+  padding: 0.5rem 1rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.btnPrimary {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.btnSecondary {
+  background-color: violet;
+  color: white;
+}
+.counter__container span {
+  font-size: 1.3rem;
+  background-color: red;
+  color: white;
+  border-radius: 100%;
+  padding: 1rem;
+}

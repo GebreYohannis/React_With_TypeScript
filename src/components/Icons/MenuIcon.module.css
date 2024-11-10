@@ -1,0 +1,47 @@
+.icon {
+  text-align: center;
+  background: black;
+  border-radius: 10px;
+}
+
+.menu {
+  padding: 0 0.5rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.menuBorder {
+  border: 2px solid #ccc;
+  transition: all 0.3s;
+}
+
+.line {
+  padding: 0 1.5rem 0.7rem 1.5rem;
+  border-bottom: 2px solid #ccc;
+  margin: 0;
+  transition: all 0.3s;
+}
+.menu:last-child {
+  padding-bottom: 0.7rem;
+}
+.iconMenu:hover .menu {
+  box-shadow: 0 0 2px 3px grey;
+}
+
+.iconMenu:hover .menu,
+.iconMenu:hover .line {
+  border-color: #fff;
+}
+.menu:first-child {
+  padding-top: 0;
+}
+
+@media screen and (min-width: 600px) {
+  .displayNone {
+    display: none;
+  }
+}

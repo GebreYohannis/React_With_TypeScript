@@ -1,0 +1,40 @@
+.btn {
+  outline: 0;
+  border: 0;
+  padding: 1rem 2rem;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: 1rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  /* margin: 1rem; */
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+.btnPrimary {
+  background: dodgerblue;
+  color: #fff;
+}
+
+.btnSecondary {
+  background: rgb(101, 213, 228);
+  color: #fff;
+}
+
+.btnSuccess {
+  background: rgb(91, 215, 91);
+  color: #fff;
+}
+
+.btnDanger {
+  color: #fff;
+  background: rgb(232, 64, 64);
+}
+
+.btnBlack {
+  background: black;
+  color: #fff;
+}
