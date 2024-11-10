@@ -1,13 +1,11 @@
-import ExpandableText from "./components/ExpandableText/ExpandableText";
+import Form from "./components/Form/Form";
 
 function App() {
   return (
     <>
-      <ExpandableText maxChar={60}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
-        molestias accusamus iste necessitatibus, quidem vitae ducimus expedita
-        culpa assumenda rerum.
-      </ExpandableText>
+      <div>
+        <Form />
+      </div>
     </>
   );
 }
