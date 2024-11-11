@@ -1,10 +1,12 @@
-import ReactHookForm from "./components/Form/ReatHookForm";
+import Form from "./components/Form/Form";
+import UseStateForm from "./components/Form/UseStateForm";
 
 function App() {
   return (
     <>
       <div>
-        <ReactHookForm />
+        <Form />
+        <UseStateForm />
       </div>
     </>
   );
