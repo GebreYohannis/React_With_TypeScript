@@ -1,10 +1,10 @@
-import ReactHookForm from "./components/Form/ReatHookForm";
+import { LoginForm } from "./components/LoginForm";
 
 function App() {
   return (
     <>
-      <div>
-        <ReactHookForm />
+      <div className="container m-10">
+        <LoginForm />
       </div>
     </>
   );
