@@ -73,15 +73,14 @@ const Form = () => {
           Remember me
         </label>
       </div>
+
       <div className="mb-3">
-        <div className="mb-3">
-          <button className="btn btn-primary" type="submit">
-            Log in
-          </button>
-          <button type="reset" className="btn btn-secondary m-4">
-            Clear
-          </button>
-        </div>
+        <button className="btn btn-primary" type="submit">
+          Log in
+        </button>
+        <button type="reset" className="btn btn-secondary m-4">
+          Clear
+        </button>
       </div>
     </form>
   );
