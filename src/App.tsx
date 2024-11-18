@@ -1,12 +1,10 @@
-import ZodFormValidation from "./components/Form/ZodFormValidation";
+import ExpenseApp from "./expense-tracker/ExpenseApp";
 
 function App() {
   return (
-    <>
-      <div className="container m-10">
-        <ZodFormValidation />
-      </div>
-    </>
+    <div>
+      <ExpenseApp />
+    </div>
   );
 }
 
