@@ -1,10 +1,10 @@
-import { LoginForm } from "./components/LoginForm";
+import ZodFormValidation from "./components/Form/ZodFormValidation";
 
 function App() {
   return (
     <>
       <div className="container m-10">
-        <LoginForm />
+        <ZodFormValidation />
       </div>
     </>
   );
