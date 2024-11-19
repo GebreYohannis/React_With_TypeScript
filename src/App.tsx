@@ -1,9 +1,9 @@
-import ExpenseApp from "./expense-tracker/ExpenseApp";
+import TodoApp from "./todo-list/TodoApp";
 
 function App() {
   return (
     <div>
-      <ExpenseApp />
+      <TodoApp />
     </div>
   );
 }
