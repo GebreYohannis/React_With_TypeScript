@@ -1,9 +1,9 @@
-import TodoApp from "./todo-list/TodoApp";
+import FetchDataWithAxios from "./components/CallingBackendServices/FetchDataWithAxios";
 
 function App() {
   return (
     <div>
-      <TodoApp />
+      <FetchDataWithAxios />
     </div>
   );
 }
