@@ -1,9 +1,9 @@
-import FetchDataWithAxios from "./components/CallingBackendServices/FetchDataWithAxios";
+import FetchedUserApp from "./fetch-user/FetchUserApp";
 
 function App() {
   return (
     <div>
-      <FetchDataWithAxios />
+      <FetchedUserApp />
     </div>
   );
 }
