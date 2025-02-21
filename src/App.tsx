@@ -1,9 +1,9 @@
-import ExpenseApp from "./expense-tracker/ExpenseApp";
+import FetchedUserApp from "./fetch-user/FetchUserApp";
 
 function App() {
   return (
     <div>
-      <ExpenseApp />
+      <FetchedUserApp />
     </div>
   );
 }
