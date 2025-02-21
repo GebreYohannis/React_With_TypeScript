@@ -9,7 +9,11 @@ interface Todo {
 }
 
 const TodoList = () => {
-  const { data: todos, error } = useQuery<Todo[], Error>({
+  const {
+    data: todos,
+    error,
+    isLoading,
+  } = useQuery<Todo[], Error>({
     queryKey: ["todos"],
     queryFn: () =>
       axios
@@ -17,6 +21,7 @@ const TodoList = () => {
         .then((response) => response.data),
   });
 
+  if (isLoading) return <div className="spinner-border"></div>;
   if (error) return <div className="text-danger">{error.message}</div>;
 
   return (
