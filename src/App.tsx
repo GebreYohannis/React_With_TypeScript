@@ -1,9 +1,9 @@
-import FetchedUserApp from "./fetch-user/FetchUserApp";
+import TodoList from "./react-query/TodoList";
 
 function App() {
   return (
     <div>
-      <FetchedUserApp />
+      <TodoList />
     </div>
   );
 }
