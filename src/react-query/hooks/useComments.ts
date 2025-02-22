@@ -1,4 +1,4 @@
-import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 interface Comment {
@@ -10,24 +10,30 @@ interface Comment {
 }
 
 export interface CommentQuery {
-  page: number;
   pageSize: number;
 }
 
 const useComments = (query: CommentQuery) => {
-  const fetchComments = () =>
-    axios
-      .get<Comment[]>("http://jsonplaceholder.typicode.com/comments", {
-        params: {
-          _start: (query.page - 1) * query.pageSize,
-          _limit: query.pageSize,
-        },
-      })
-      .then((response) => response.data);
-  return useQuery<Comment[], Error>({
+  return useInfiniteQuery<Comment[], Error>({
     queryKey: ["comments", query],
-    queryFn: fetchComments,
-    placeholderData: keepPreviousData,
+    queryFn: ({ pageParam = 0 }) =>
+      axios
+        .get<Comment[]>("http://jsonplaceholder.typicode.com/comments", {
+          params: {
+            _start: <number>pageParam * query.pageSize,
+            _limit: query.pageSize,
+          },
+        })
+        .then((response) => response.data),
+    initialPageParam: 0,
+    getNextPageParam: (lastPage, allPages) => {
+      return lastPage.length === query.pageSize
+        ? allPages.length + 1
+        : undefined;
+    },
+    getPreviousPageParam: (firstPage, pages) => {
+      return firstPage.length > 1 ? pages.length - 1 : undefined;
+    },
   });
 };
 
