@@ -1,9 +1,9 @@
-import PostList from "./react-query/PostList";
+import CommentList from "./react-query/CommentList";
 
 function App() {
   return (
     <div>
-      <PostList />
+      <CommentList />
     </div>
   );
 }
