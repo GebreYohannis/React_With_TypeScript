@@ -2,8 +2,18 @@ import { useState } from "react";
 import usePosts from "./hooks/usePosts";
 
 const PostList = () => {
+  const pageSize = 10;
+  const [page, setPage] = useState(1);
   const [userId, setUserId] = useState<number>();
-  const { data: posts, error, isLoading } = usePosts(userId);
+  const {
+    data: posts,
+    error,
+    isLoading,
+  } = usePosts({
+    page: page,
+    pageSize: pageSize,
+    userId: userId,
+  });
 
   if (isLoading) return <p className="spinner-border" />;
 
@@ -29,6 +39,22 @@ const PostList = () => {
           </li>
         ))}
       </ul>
+
+      <div className="my-3">
+        <button
+          disabled={page === 1}
+          className="btn btn-primary"
+          onClick={() => setPage(page - 1)}
+        >
+          Previous
+        </button>
+        <button
+          className="btn btn-primary ms-2"
+          onClick={() => setPage(page + 1)}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 };
