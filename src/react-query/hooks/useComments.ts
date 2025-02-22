@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 interface Comment {
@@ -9,13 +9,26 @@ interface Comment {
   postId: number;
 }
 
-const useComments = () =>
-  useQuery<Comment[], Error>({
-    queryKey: ["comments"],
-    queryFn: () =>
-      axios
-        .get<Comment[]>("http://jsonplaceholder.typicode.com/comments")
-        .then((response) => response.data),
+export interface CommentQuery {
+  page: number;
+  pageSize: number;
+}
+
+const useComments = (query: CommentQuery) => {
+  const fetchComments = () =>
+    axios
+      .get<Comment[]>("http://jsonplaceholder.typicode.com/comments", {
+        params: {
+          _start: (query.page - 1) * query.pageSize,
+          _limit: query.pageSize,
+        },
+      })
+      .then((response) => response.data);
+  return useQuery<Comment[], Error>({
+    queryKey: ["comments", query],
+    queryFn: fetchComments,
+    placeholderData: keepPreviousData,
   });
+};
 
 export default useComments;
