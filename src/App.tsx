@@ -1,9 +1,9 @@
-import CommentList from "./react-query/CommentList";
+import TodoApp from "./react-query/TodoApp";
 
 function App() {
   return (
     <div>
-      <CommentList />
+      <TodoApp />
     </div>
   );
 }
