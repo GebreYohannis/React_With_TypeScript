@@ -6,6 +6,7 @@ interface Props {
   toggleComplete: (id: number) => void;
   removeTodo: (id: number) => void;
 }
+
 const TodoList = ({ todos, toggleComplete, removeTodo }: Props) => {
   return (
     <ul className="list-group">
