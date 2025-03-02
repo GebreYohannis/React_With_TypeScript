@@ -1,9 +1,9 @@
-import TodoApp from "./react-query/TodoApp";
+import AlbumList from "./react-query/AlbumList";
 
 function App() {
   return (
     <div>
-      <TodoApp />
+      <AlbumList />
     </div>
   );
 }
