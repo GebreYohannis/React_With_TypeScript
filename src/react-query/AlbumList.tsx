@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError, CanceledError } from "axios";
 import { useEffect, useState } from "react";
 
 interface Album {
@@ -9,6 +9,7 @@ interface Album {
 
 const AlbumList = () => {
   const [albums, setAlbums] = useState<Album[]>([]);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     axios
@@ -16,8 +17,14 @@ const AlbumList = () => {
       .then((response) => {
         // console.log(response.data);
         setAlbums(response.data);
+      })
+      .catch((error) => {
+        if (error instanceof CanceledError) return;
+        setError((error as AxiosError).message);
       });
   }, []);
+
+  if (error) return <p className="alert alert-danger">{error}</p>;
   return (
     <ul className="list-group">
       {albums.map((album) => (
