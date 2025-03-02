@@ -3,26 +3,43 @@ import axios from "axios";
 import { FormEvent, useRef } from "react";
 import { Album } from "./hooks/useAlbum";
 
+interface AlbumContext {
+  previousAlbums: Album[];
+}
+
 const AlbumForm = () => {
   const queryClient = useQueryClient();
-  const inputRef = useRef<HTMLInputElement>(null);
 
-  const addAlbum = useMutation<Album, Error, Album>({
+  const addAlbum = useMutation<Album, Error, Album, AlbumContext>({
     mutationFn: (album: Album) =>
       axios
         .post<Album>("https://jsonplaceholder.typicode.com/albums", album)
         .then((response) => response.data),
-    onSuccess: (savedAlbum, newAlbum) => {
+    onMutate: (newAlbum: Album) => {
+      const previousAlbums =
+        queryClient.getQueryData<Album[]>(["albums"]) || [];
       queryClient.setQueryData<Album[]>(["albums"], (albums = []) => [
-        savedAlbum,
+        newAlbum,
         ...albums,
       ]);
+      return { previousAlbums };
+    },
+    onSuccess: (savedAlbum, newAlbum) => {
+      queryClient.setQueryData<Album[]>(["albums"], (albums = []) =>
+        albums.map((album) => (newAlbum === album ? savedAlbum : album))
+      );
 
       if (inputRef && inputRef.current) {
         inputRef.current.value = "";
       }
     },
+    onError: (error, newAlbum, context) => {
+      if (!context) return;
+      queryClient.setQueryData<Album[]>(["albums"], context.previousAlbums);
+    },
   });
+
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();
