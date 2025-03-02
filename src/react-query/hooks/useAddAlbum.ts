@@ -1,6 +1,6 @@
 import { useQueryClient, useMutation } from "@tanstack/react-query";
-import axios from "axios";
-import { Album } from "./useAlbum";
+
+import albumService, { Album } from "../services/albumService";
 
 interface AlbumContext {
   previousAlbums: Album[];
@@ -10,10 +10,7 @@ const useAddAlbum = (onAdd: () => void) => {
   const queryClient = useQueryClient();
 
   const addAlbum = useMutation<Album, Error, Album, AlbumContext>({
-    mutationFn: (album: Album) =>
-      axios
-        .post<Album>("https://jsonplaceholder.typicode.com/albums", album)
-        .then((response) => response.data),
+    mutationFn: albumService.post,
     onMutate: (newAlbum: Album) => {
       const previousAlbums =
         queryClient.getQueryData<Album[]>(["albums"]) || [];
