@@ -1,6 +1,7 @@
 import { useQueryClient, useMutation } from "@tanstack/react-query";
 
 import albumService, { Album } from "../services/albumService";
+import { CACHE_KEY_ALBUMS } from "../constants";
 
 interface AlbumContext {
   previousAlbums: Album[];
@@ -13,15 +14,15 @@ const useAddAlbum = (onAdd: () => void) => {
     mutationFn: albumService.post,
     onMutate: (newAlbum: Album) => {
       const previousAlbums =
-        queryClient.getQueryData<Album[]>(["albums"]) || [];
-      queryClient.setQueryData<Album[]>(["albums"], (albums = []) => [
+        queryClient.getQueryData<Album[]>(CACHE_KEY_ALBUMS) || [];
+      queryClient.setQueryData<Album[]>(CACHE_KEY_ALBUMS, (albums = []) => [
         newAlbum,
         ...albums,
       ]);
       return { previousAlbums };
     },
     onSuccess: (savedAlbum, newAlbum) => {
-      queryClient.setQueryData<Album[]>(["albums"], (albums = []) =>
+      queryClient.setQueryData<Album[]>(CACHE_KEY_ALBUMS, (albums = []) =>
         albums.map((album) => (newAlbum === album ? savedAlbum : album))
       );
 
@@ -29,7 +30,10 @@ const useAddAlbum = (onAdd: () => void) => {
     },
     onError: (error, newAlbum, context) => {
       if (!context) return;
-      queryClient.setQueryData<Album[]>(["albums"], context.previousAlbums);
+      queryClient.setQueryData<Album[]>(
+        CACHE_KEY_ALBUMS,
+        context.previousAlbums
+      );
     },
   });
   return { addAlbum };
