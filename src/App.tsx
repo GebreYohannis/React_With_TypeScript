@@ -1,11 +1,9 @@
-import AlbumForm from "./react-query/AlbumForm";
-import AlbumList from "./react-query/AlbumList";
+import LoginStatus from "./state-management/LoginStatus";
 
 function App() {
   return (
     <div>
-      <AlbumForm />
-      <AlbumList />
+      <LoginStatus />
     </div>
   );
 }
