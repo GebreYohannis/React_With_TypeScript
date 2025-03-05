@@ -2,7 +2,7 @@
 // import {  useState } from "react";
 
 // import authReducer from "./reducers/authReducer";
-import useAuth from "./hooks/useAuth";
+import useAuth from "./useAuth";
 
 const LoginStatus = () => {
   //   const [user, setUser] = useState("");

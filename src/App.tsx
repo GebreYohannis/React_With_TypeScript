@@ -1,4 +1,4 @@
-import AuthProvider from "./state-management/AuthProvider";
+import AuthProvider from "./state-management/auth/AuthProvider";
 import HomePage from "./state-management/HomePage";
 import LoginApp from "./state-management/LoginApp";
 import Navbar from "./state-management/Navbar";

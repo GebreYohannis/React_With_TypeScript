@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import AuthContext from "./contexts/authContext";
+import AuthContext from "./auth/authContext";
 
 const LoginNavbar = () => {
   const { state: user } = useContext(AuthContext);
