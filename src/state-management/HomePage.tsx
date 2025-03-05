@@ -1,4 +1,4 @@
-import TaskList from "./TaskList";
+import TaskList from "./tasks/TaskList";
 
 function HomePage() {
   return (
