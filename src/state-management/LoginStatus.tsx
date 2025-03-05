@@ -1,15 +1,14 @@
-import { useContext } from "react";
 // import { useReducer } from "react";
 // import {  useState } from "react";
 
 // import authReducer from "./reducers/authReducer";
-import AuthContext from "./contexts/authContext";
+import useAuth from "./hooks/useAuth";
 
 const LoginStatus = () => {
   //   const [user, setUser] = useState("");
   // const [user, dispatch] = useReducer(authReducer, "");
 
-  const { state: user, dispatch } = useContext(AuthContext);
+  const { state: user, dispatch } = useAuth();
 
   const handleLogin = (): void => {
     // setUser("gech.demis");
