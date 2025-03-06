@@ -21,7 +21,7 @@ function UserListPage() {
       <ul className="list-group">
         {users.map((user) => (
           <li key={user.id} className="list-group-item">
-            <Link to={"/" + user.id}>{user.name}</Link>
+            <Link to={`/users/${user.id}`}>{user.name}</Link>
           </li>
         ))}
       </ul>

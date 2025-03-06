@@ -3,6 +3,7 @@ import HomePage from "./HomePage";
 import UserListPage from "./UserListPage";
 import About from "./About";
 import Contact from "./Contact";
+import UserDetailsPage from "./UserDetailsPage";
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
   {
     path: "/users",
     element: <UserListPage />,
+  },
+  {
+    path: "/users/:id",
+    element: <UserDetailsPage />,
   },
   {
     path: "/about",
