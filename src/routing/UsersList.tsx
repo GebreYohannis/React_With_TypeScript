@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function UserListPage() {
+function UsersList() {
   const users = [
     {
       id: 1,
@@ -29,4 +29,4 @@ function UserListPage() {
   );
 }
 
-export default UserListPage;
+export default UsersList;
