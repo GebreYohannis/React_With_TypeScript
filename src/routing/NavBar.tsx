@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
+  const active = (isActive: boolean) =>
+    isActive ? "nav-link  text-light" : "nav-link";
   return (
     <nav
       className="navbar navbar-expand-lg"
@@ -10,30 +12,39 @@ const NavBar = () => {
       }}
     >
       <div className="container-fluid">
-        <Link to="/" className="navbar-brand text-light">
+        <NavLink to="/" className="navbar-brand text-light">
           Navbar
-        </Link>
+        </NavLink>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link to="/" className="nav-link text-light">
+              <NavLink to="/" className={({ isActive }) => active(isActive)}>
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link to="/users" className="nav-link text-light">
+              <NavLink
+                to="/users"
+                className={({ isActive }) => active(isActive)}
+              >
                 Users
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link to="/contact" className="nav-link text-light">
+              <NavLink
+                to="/contact"
+                className={({ isActive }) => active(isActive)}
+              >
                 Contact
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link to="/about" className="nav-link text-light">
+              <NavLink
+                to="/about"
+                className={({ isActive }) => active(isActive)}
+              >
                 About
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>
