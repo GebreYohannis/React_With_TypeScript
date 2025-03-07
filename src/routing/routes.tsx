@@ -3,6 +3,7 @@ import About from "./About";
 import Contact from "./Contact";
 import HomePage from "./HomePage";
 import Layout from "./Layout";
+import LoginPage from "./LoginPage";
 import UserDetails from "./UserDetails";
 import UsersPage from "./UsersPage";
 import ErrorPage from "./ErrorPage";
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
         index: true,
         element: <HomePage />,
       },
+
       {
         path: "users",
         element: <UsersPage />,
@@ -35,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />,
+      },
+      {
+        path: "login",
+        element: <LoginPage />,
       },
     ],
   },
