@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 function HomePage() {
+  // throw new Error("Something failed");
   return (
     <div>
       <h1>HomePage</h1>
